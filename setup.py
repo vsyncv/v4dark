@@ -5,5 +5,5 @@ setup(name='v4dark',
       description='super fancy discord bot',
       packages=['v4dark'],
       install_requires=['colorlog',
-      ],
+      'discord.py'],
       zip_safe=False)
