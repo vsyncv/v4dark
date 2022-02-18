@@ -33,5 +33,5 @@ async def vineet_is_awesome(message):
 
 async def get_stock_price(message):
     if  message.content.lower().startswith('give_ticker'):
-        stock_ticker = message.content.lower().split(" ")[1]
+        stock_ticker = message.content.split(" ")[1]
         await message.channel.send('Current price for ' + str(stock_ticker) + ":" + get_stock_price_from_yahoo(stock_ticker))
