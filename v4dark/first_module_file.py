@@ -26,7 +26,7 @@ async def on_message(message):
     if message.author == client.user:
         return # ignore yourself.
     
-    await vineet_is_awesome(message,client)
+    await vineet_is_awesome(message)
 
 def start_bot():
     client.run(TOKEN)
