@@ -11,7 +11,7 @@ from v4dark.helper_functions import logger
 
 my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related') 
 
-def get_stock_price(stock_ticker):
+async def get_stock_price(stock_ticker):
     '''
     urls used to write this function:
 
@@ -27,8 +27,6 @@ def get_stock_price(stock_ticker):
     return price
 
 
-
-
 async def vineet_is_awesome(message):
     if 'vineet' in message.content.lower():
         await message.channel.send('Vineet is awesome!')
@@ -36,4 +34,4 @@ async def vineet_is_awesome(message):
 async def get_stock_price(message):
     if  message.content.lower().startswith('give_ticker'):
         stock_ticker = message.content.lower().split(" ")[1]
-        await message.channel.send('Current price for ' + str(stock_ticker) + ":" + get_stock_price(stock_ticker))
+        await message.channel.send('Current price for ' + str(stock_ticker) + ":" + await get_stock_price(stock_ticker))

@@ -1,7 +1,7 @@
 ﻿from setuptools import setup
 
 setup(name='v4dark',
-      version='0.13',
+      version='0.14',
       description='super fancy discord bot',
       packages=['v4dark'],
       install_requires=['colorlog',
