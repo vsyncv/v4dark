@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import requests
 from v4dark.helper_functions import logger
 
-my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related') 
+my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related')
 
 def get_stock_price_from_yahoo(stock_ticker):
     '''
@@ -19,6 +19,8 @@ def get_stock_price_from_yahoo(stock_ticker):
 
     https://stackoverflow.com/questions/34301815/understand-the-find-function-in-beautiful-soup
     '''
+    stock_ticker = stock_ticker.upper()
+    my_logger.info("get_stock_price_from_yahoo: getting current price for " + stock_ticker)
     url = 'https://finance.yahoo.com/quote/' + stock_ticker
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'lxml')
@@ -26,12 +28,12 @@ def get_stock_price_from_yahoo(stock_ticker):
     price = soup.find('fin-streamer', class_ = 'Fw(b) Fz(36px) Mb(-4px) D(ib)').text
     return price
 
-
 async def vineet_is_awesome(message):
     if 'vineet' in message.content.lower():
         await message.channel.send('Vineet is awesome!')
 
 async def get_stock_price(message):
     if  message.content.lower().startswith('give_ticker'):
+        my_logger.info("get_stock_price: looks like you want a ticker... ")
         stock_ticker = message.content.split(" ")[1]
-        await message.channel.send('Current price for ' + str(stock_ticker) + ":" + get_stock_price_from_yahoo(stock_ticker))
+        await message.channel.send('Current price for ' + str(stock_ticker) + ": " + get_stock_price_from_yahoo(stock_ticker))
