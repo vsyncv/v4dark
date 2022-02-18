@@ -9,6 +9,8 @@ from bs4 import BeautifulSoup
 import requests
 from v4dark.helper_functions import logger
 
+my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related') 
+
 def get_stock_price(stock_ticker):
     '''
     urls used to write this function:
@@ -25,7 +27,7 @@ def get_stock_price(stock_ticker):
     return price
 
 
-my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related') 
+
 
 async def vineet_is_awesome(message):
     if 'vineet' in message.content.lower():

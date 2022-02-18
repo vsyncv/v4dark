@@ -7,7 +7,7 @@ https://discordpy.readthedocs.io/en/latest/api.html
 from dotenv import load_dotenv
 import os
 import discord
-from v4dark.message_related import vineet_is_awesome
+from v4dark.message_related import vineet_is_awesome,get_stock_price
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN') # Yep... So now you better have that .env file, or else this will break.
@@ -27,6 +27,7 @@ async def on_message(message):
         return # ignore yourself.
     
     await vineet_is_awesome(message)
+    await get_stock_price(message)
 
 def start_bot():
     client.run(TOKEN)
