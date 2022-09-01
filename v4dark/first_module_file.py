@@ -7,8 +7,8 @@ https://discordpy.readthedocs.io/en/latest/api.html
 from dotenv import load_dotenv
 import os
 import discord
-from v4dark.message_related import vineet_is_awesome,get_stock_price
-from v4dark.helper_functions import logger
+from message_related import vineet_is_awesome,get_stock_price
+from helper_functions import logger
 
 my_logger = logger(log_filepath='logs/first_module_file.log', logger_name='first_module_file')
 

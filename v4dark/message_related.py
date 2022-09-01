@@ -7,7 +7,7 @@ They all need to be in the on_message() function, or else they won't work.
 '''
 from bs4 import BeautifulSoup
 import requests
-from v4dark.helper_functions import logger
+from helper_functions import logger
 
 my_logger = logger(log_filepath='logs/message_related.log', logger_name='message_related')
 
